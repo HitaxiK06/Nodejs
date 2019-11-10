@@ -1,7 +1,11 @@
 const express= require('express')
+const path = requre('path')
+
 
 const app = express()
+const publicdirectorypath = path.join(__dirname,'../public')
 
+app.use(express.static(publicdirectorypath))
 app.get('',(req,res)=>{
     res.send('<h1>Home Page of Exercise</h1>')
 })
