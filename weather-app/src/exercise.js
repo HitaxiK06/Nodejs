@@ -2,6 +2,7 @@
 const express= require('express')
 const path = require('path')
 const hbs =require('hbs')
+const bodyparse = require('body-parser')
 
 const app = express()
 
@@ -9,6 +10,7 @@ const app = express()
 const publicdirectorypath = path.join(__dirname,'../public')
 const viewpath = path.join(__dirname,'../templates/views')
 const partialpath = path.join(__dirname,'../templates/partials')
+const urlencodedParser = bodyparse.urlencoded({ extended: false })
 
 //setup view location
 app.set('view engine','hbs')
@@ -31,6 +33,7 @@ app.get('/calculator',(req,res)=>{
         title : 'Calculator',
         age:29
     })
+    
     // res.send({
     //     title : 'calculator',
     //     age:29
@@ -42,7 +45,10 @@ app.get('/student',(req,res)=>{
         age:29
     })
 })
-
+app.get('/calculate',urlencodedParser,(req,res)=>{
+    console.log(req.query.number1)
+    res.send(req.query.number1)
+})
 app.get('*',(req,res)=>{
     res.render('404')
 })
