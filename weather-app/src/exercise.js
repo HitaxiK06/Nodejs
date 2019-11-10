@@ -1,13 +1,21 @@
 //packages
 const express= require('express')
 const path = require('path')
+const hbs =require('hbs')
 
-//declaration
 const app = express()
+
+//Define Path of File
 const publicdirectorypath = path.join(__dirname,'../public')
-const viewpath = path.join(__dirname,'../templates')
+const viewpath = path.join(__dirname,'../templates/views')
+const partialpath = path.join(__dirname,'../templates/partials')
+
+//setup view location
 app.set('view engine','hbs')
 app.set('views',viewpath)
+hbs.registerPartials(partialpath)
+
+//setup of static assets
 app.use(express.static(publicdirectorypath))
 
 
