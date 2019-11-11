@@ -39,6 +39,12 @@ app.get('/calculator',(req,res)=>{
     //     age:29
     // })
 })
+app.post('/calculate',(req,res)=>{
+    var a = req.body.number1;
+    var b =req.body.number2;
+    var c=a+b;
+    res.render('calculator',c)
+})
 app.get('/student',(req,res)=>{
     res.render('student',{
         title : 'Student',
