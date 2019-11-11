@@ -5,6 +5,15 @@
 </head>
 <body>
     {{>header}}
-    <h1>{{title}}</h1>
+    Welcome To Student Page 
+    <br/><br/>
+    <form action="/saving" method="get" target="result">
+        Enter Name: <input type="text" name="name"> <br/>
+        Enter Number: <input type="text" name="number"> <br/>
+<hr/>
+   <label name="result" >{{result}}</label>
+   <button type="submit"  name="action" value="save">Save</button>
+   <input type="submit"  name="action" value="Sub">
+   </form>
 </body>
 </html>

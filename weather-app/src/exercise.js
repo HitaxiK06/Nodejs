@@ -3,6 +3,7 @@ const express= require('express')
 const path = require('path')
 const hbs =require('hbs')
 const bodyparse = require('body-parser')
+const note=require('/Notes.js')
 
 const app = express()
 
@@ -28,6 +29,7 @@ app.get('',(req,res)=>{
     })
     //res.send('<h1>Home Page of Exercise</h1>')
 })
+
 app.get('/calculator',(req,res)=>{
     res.render('calculator',{
         title : 'Calculator',
@@ -39,6 +41,7 @@ app.get('/calculator',(req,res)=>{
     //     age:29
     // })
 })
+
 app.get('/calculate',(req,res)=>{
     var num1 = req.query.number1;
     var num2 =req.query.number2;
@@ -51,19 +54,18 @@ app.get('/calculate',(req,res)=>{
     }
     res.render('calculator',{result})
 })
+
 app.get('/student',(req,res)=>{
     res.render('student',{
         title : 'Student',
         age:29
     })
 })
-app.get('/calculate',urlencodedParser,(req,res)=>{
-    console.log(req.query.number1)
-    res.send(req.query.number1)
-})
+
 app.get('*',(req,res)=>{
     res.render('404')
 })
+
 app.listen(3000,()=>{
     console.log('server is up')
 })
