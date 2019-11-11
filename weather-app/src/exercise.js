@@ -3,7 +3,7 @@ const express= require('express')
 const path = require('path')
 const hbs =require('hbs')
 const bodyparse = require('body-parser')
-const note=require('/Notes.js')
+//const notes = require('/')
 
 const app = express()
 
@@ -60,6 +60,16 @@ app.get('/student',(req,res)=>{
         title : 'Student',
         age:29
     })
+})
+
+app.get('/saving',(req,res)=>{
+    var name = req.query.name;
+    var num =req.query.number;
+    var result;
+    if(req.query.action =='save'){
+        //notes.
+    }
+    res.render('calculator',{result})
 })
 
 app.get('*',(req,res)=>{
