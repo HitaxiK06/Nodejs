@@ -19,6 +19,15 @@ yargs.command({
 })
 
 yargs.command({
+    command:'list',
+    describe:'list note',
+    handler: function(argv){
+        notes.listNote()
+        console.log('Add New notes')
+    }
+})
+
+yargs.command({
     command:'remove',
     describe:'Remove a note',
     builder:{
