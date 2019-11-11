@@ -41,6 +41,7 @@ app.get('/calculator',(req,res)=>{
     //     age:29
     // })
 })
+<<<<<<< HEAD
 
 app.get('/calculate',(req,res)=>{
     var num1 = req.query.number1;
@@ -51,6 +52,7 @@ app.get('/calculate',(req,res)=>{
     }
     if(req.query.action =='Sub'){
         result=Number(num1) - Number(num2)
+
     }
     res.render('calculator',{result})
 })
