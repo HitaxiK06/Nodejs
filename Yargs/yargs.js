@@ -13,6 +13,7 @@ yargs.command({
         }
     },
     handler: function(argv){
+        notes.addNote(argv.title)
         console.log('Add New notes'+argv.title)
     }
 })
