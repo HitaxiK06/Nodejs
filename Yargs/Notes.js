@@ -1,4 +1,5 @@
 const fs = require('fs')
+const chalk = require('chalk')
 
 const addNote = (title) => {
     const notes=loadnotes()
@@ -21,12 +22,13 @@ const removeNote = (title) => {
         return note.title !==title
     })
          saveNotes(duplicateNotes)
-      
+     const  
    
 }
 
 const listNote = () => {
     const notes=loadnotes()
+    console.log(chalk.red.inverse.bold('List of Title'))
     notes.forEach((note)=>{
         console.log(note.title)
     })
