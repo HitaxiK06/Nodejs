@@ -3,7 +3,7 @@ const express= require('express')
 const path = require('path')
 const hbs =require('hbs')
 const bodyparse = require('body-parser')
-//const notes = require('/')
+const notes = require('/Notes.js')
 
 const app = express()
 
@@ -67,7 +67,7 @@ app.get('/saving',(req,res)=>{
     var num =req.query.number;
     var result;
     if(req.query.action =='save'){
-        //notes.
+        
     }
     res.render('calculator',{result})
 })
