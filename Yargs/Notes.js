@@ -12,8 +12,7 @@ const addNote = (title) => {
             title:title
         })
         saveNotes(notes)
-    }
-         
+    }else{console.log(chalk.red.inverse.bold('already exist'))}
 }
 
 const removeNote = (title) => {
@@ -21,8 +20,7 @@ const removeNote = (title) => {
     const duplicateNotes=notes.filter(function(note){
         return note.title !==title
     })
-         saveNotes(duplicateNotes)
-     const  
+         saveNotes(duplicateNotes)     
    
 }
 
