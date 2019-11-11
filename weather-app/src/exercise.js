@@ -39,11 +39,17 @@ app.get('/calculator',(req,res)=>{
     //     age:29
     // })
 })
-app.post('/calculate',(req,res)=>{
-    var a = req.body.number1;
-    var b =req.body.number2;
-    var c=a+b;
-    res.render('calculator',c)
+app.get('/calculate',(req,res)=>{
+    var num1 = req.query.number1;
+    var num2 =req.query.number2;
+    var result;
+    if(req.query.action =='Add'){
+        result=Number(num1)+ Number(num2)
+    }
+    if(req.query.action =='Sub'){
+        result=Number(num1) - Number(num2)
+    }
+    res.render('calculator',{result})
 })
 app.get('/student',(req,res)=>{
     res.render('student',{

@@ -7,15 +7,15 @@
     {{>header}}
     Welcome To Calcualtor Page 
     <br/><br/>
-    <form action="/calculate" method="post" target="result">
+    <form action="/calculate" method="get" target="result">
         Enter number 1: <input type="text" name="number1"> <br>
         Enter number 2: <input type="text" name="number2"> <br/>
-
+<hr/>
+   <label name="result" >{{result}}</label>
    <input type="submit"  name="action" value="Add">
    <input type="submit"  name="action" value="Sub">
    </form>
-   <hr/>
-   <p name="result" value={{c}}></p>
+   
     {{!-- <iframe  name="result" src="" width="200" height="200">
     </iframe> --}}
 </body>
