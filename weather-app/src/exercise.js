@@ -3,7 +3,7 @@ const express= require('express')
 const path = require('path')
 const hbs =require('hbs')
 const bodyparse = require('body-parser')
-const notes = require('/Notes.js')
+//const notes = require('/Notes.js')
 
 const app = express()
 
@@ -50,7 +50,12 @@ app.get('/calculate',(req,res)=>{
     }
     if(req.query.action =='Sub'){
         result=Number(num1) - Number(num2)
-
+    }
+    if(req.query.action =='mul'){
+        result=Number(num1) * Number(num2)
+    }
+    if(req.query.action =='div'){
+        result=Number(num1) / Number(num2)
     }
     res.render('calculator',{result})
 })

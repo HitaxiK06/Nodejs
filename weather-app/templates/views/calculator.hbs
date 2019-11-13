@@ -7,28 +7,18 @@
     {{>header}}
     <h4>Welcome To Calcualtor Page</h4> 
     <br/><br/>
-<<<<<<< HEAD
     <form action="/calculate" method="get" target="result">
         Enter number 1: <input type="text" name="number1"> <br>
         Enter number 2: <input type="text" name="number2"> <br/>
-<hr/>
-   <label name="result" >{{result}}</label>
+    <hr/>
+        <label name="result" >{{result}}</label>
+   <hr/>
    <input type="submit"  name="action" value="Add">
    <input type="submit"  name="action" value="Sub">
+   <input type="submit"  name="action" value="mul">
+   <input type="submit"  name="action" value="div">
    </form>
    
-=======
-    <form action="/calculate" method="get">
-        Enter number 1: <input type="text" name="number1"> <br>
-        Enter number 2: <input type="text" name="number2"> <br/>
-        <hr/>
-        <p name="result">{{result}}</p>
-   <button type="submit"  name="action" value="Add">Add</button>
-   <button type="submit"  name="action" value="Sub">Sub</button>
-    
-   </form>
- 
->>>>>>> commit
     {{!-- <iframe  name="result" src="" width="200" height="200">
     </iframe> --}}
 </body>
