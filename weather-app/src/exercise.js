@@ -41,8 +41,6 @@ app.get('/calculator',(req,res)=>{
     //     age:29
     // })
 })
-<<<<<<< HEAD
-
 app.get('/calculate',(req,res)=>{
     var num1 = req.query.number1;
     var num2 =req.query.number2;
@@ -56,6 +54,8 @@ app.get('/calculate',(req,res)=>{
     }
     res.render('calculator',{result})
 })
+
+
 
 app.get('/student',(req,res)=>{
     res.render('student',{
