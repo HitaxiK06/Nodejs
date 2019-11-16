@@ -1,5 +1,5 @@
 const request = require('request')
-
+const geocode = require('./utils/geocode')
 // const url='https://api.darksky.net/forecast/6f02e60e249e5e921d56cbcbc8a4cfaf/37.8267,-122.4233'
 
 // request({url: url, json: true}, function (error, response) {
@@ -49,7 +49,7 @@ const request = require('request')
 // }});
 //   }
   
-  geocode('Ahmedabad',(error,data)=>{
+  geocode('Boston',(error,data)=>{
     console.log('Error:' , error)
       console.log('Data:',data)
   })
