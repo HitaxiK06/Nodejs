@@ -1,5 +1,6 @@
 const request = require('request')
 const geocode = require('./utils/geocode')
+const forcast =require('./utils/forcast')
 // const url='https://api.darksky.net/forecast/6f02e60e249e5e921d56cbcbc8a4cfaf/37.8267,-122.4233'
 
 // request({url: url, json: true}, function (error, response) {
@@ -53,7 +54,10 @@ const geocode = require('./utils/geocode')
     console.log('Error:' , error)
       console.log('Data:',data)
   })
-
+  forcast(37.8267,-122.4233,(error,data)=>{
+    console.log('Error:' , error)
+      console.log('Data:',data)
+  })
 // request('http://www.google.com', function (error, response, body) {
 //   console.log('error:', error); // Print the error if one occurred
 //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
