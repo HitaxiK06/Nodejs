@@ -3,7 +3,7 @@ const request = require('request')
 const forcast =(longitude,latitude,callback)=>{
     const url='https://api.darksky.net/forecast/6f02e60e249e5e921d56cbcbc8a4cfaf/'+longitude+','+latitude+''
 
-request({url: url, json: true}, function (error, response) {
+request({url, json: true}, function (error, response) {
   if(error){
     callback('error:', error);
   }
@@ -11,7 +11,7 @@ request({url: url, json: true}, function (error, response) {
     callback('unable to find location');
   }
   else{
-  console.log('statusCode:', response ); 
+  //console.log('statusCode:', response ); 
   callback(undefined,response.body.daily.data[0].summary +'current Temp: ' + response.body.currently.temperature + ' chances of rain: '+response.body.currently.precipProbability);
 }});
 }

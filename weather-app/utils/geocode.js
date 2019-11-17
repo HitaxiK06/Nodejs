@@ -14,9 +14,12 @@ const geocode =(address,callback)=>{
     else{
     const latitude = response.body.features[0].center[0]
     const longitude = response.body.features[0].center[1]
+    const location = response.body.features[0].place_name
     callback(undefined,{
       latitude: latitude ,
-      longitude: longitude})
+      longitude: longitude,
+      location:location
+  })
   }});
 }
 module.exports = geocode
