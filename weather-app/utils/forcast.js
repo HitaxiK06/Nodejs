@@ -1,6 +1,6 @@
 const request = require('request')
 
-const forcast =(longitude,latitude,callback)=>{
+const forcast =(longitude,latitude,location,callback)=>{
     const url='https://api.darksky.net/forecast/6f02e60e249e5e921d56cbcbc8a4cfaf/'+longitude+','+latitude+''
 
 request({url, json: true}, function (error, response) {
@@ -12,7 +12,7 @@ request({url, json: true}, function (error, response) {
   }
   else{
   //console.log('statusCode:', response ); 
-  callback(undefined,response.body.daily.data[0].summary +'current Temp: ' + response.body.currently.temperature + ' chances of rain: '+response.body.currently.precipProbability);
+  callback(undefined,response.body.daily.data[0].summary +'Current Temp is: ' + response.body.currently.temperature + ' and chances of rain is: '+response.body.currently.precipProbability);
 }});
 }
 

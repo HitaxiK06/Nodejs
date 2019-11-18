@@ -3,15 +3,15 @@ const geocode = require('./utils/geocode')
 const forcast =require('./utils/forcast')
 
 
-geocode('Boston',(error,{latitude,longitude})=>{
+geocode('Ahmedabad',(error,{latitude,longitude,location})=>{
   if(error){
     return console.log('Error:' , error)
   }
-  forcast(longitude,latitude,(error,forcastdata)=>{
+  forcast(longitude,latitude,location,(error,forcastdata)=>{
     if(error){
       return console.log('Error:' , error)
     }
-    console.log('Data: ',forcastdata)
+    console.log(location+ ' :: ',forcastdata)
   })
 })
 // const url='https://api.darksky.net/forecast/6f02e60e249e5e921d56cbcbc8a4cfaf/37.8267,-122.4233'
