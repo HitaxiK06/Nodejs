@@ -60,7 +60,18 @@ app.get('/calculate',(req,res)=>{
     res.render('calculator',{result})
 })
 
-
+app.get('/weather',(req,res)=>{
+    if(!req.query.address){
+       return res.send({
+           error:'You must provide an address'
+       })
+    }
+    res.send({
+        address: req.query.address,
+        forecast: 'it is snowing',
+        location: 'Ahmedabad'
+    })
+})
 
 app.get('/student',(req,res)=>{
     res.render('student',{
