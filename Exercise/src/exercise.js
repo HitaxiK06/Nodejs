@@ -68,6 +68,21 @@ app.get('/weather',(req,res)=>{
            error:'You must provide an address'
        })
     }
+    geocode('Ahmedabad',(error,{latitude,longitude,location})=>{
+        if(error){
+          return res.send('Error:' , error)
+        }
+        forcast(longitude,latitude,location,(error,forcastdata)=>{
+          if(error){
+            return res.send('Error:' , error)
+          }
+          console.log(location+ ' :: ',forcastdata)
+          res.send({
+              forecast:forcastdata,
+              location:location
+          })
+        })
+      })
     res.send({
         address: req.query.address,
         forecast: 'it is snowing',
