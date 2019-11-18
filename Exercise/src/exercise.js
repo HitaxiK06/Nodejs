@@ -5,7 +5,7 @@ const hbs =require('hbs')
 const bodyparse = require('body-parser')
 const geocode = require('./utils/geocode')
 const forcast =require('./utils/forcast')
-const notes = require('./Notes')
+// const notes = require('./Notes')
 
 const app = express()
 
@@ -68,26 +68,26 @@ app.get('/weather',(req,res)=>{
            error:'You must provide an address'
        })
     }
-    geocode('Ahmedabad',(error,{latitude,longitude,location})=>{
+    geocode(req.query.address,(error,{latitude,longitude,location})=>{
         if(error){
-          return res.send('Error:' , error)
+          return res.send({error})
         }
         forcast(longitude,latitude,location,(error,forcastdata)=>{
           if(error){
-            return res.send('Error:' , error)
+            return res.send({error})
           }
           console.log(location+ ' :: ',forcastdata)
           res.send({
-              forecast:forcastdata,
-              location:location
+              forecast: forcastdata,
+              location: location
           })
         })
       })
-    res.send({
-        address: req.query.address,
-        forecast: 'it is snowing',
-        location: 'Ahmedabad'
-    })
+    // res.send({
+    //     address: req.query.address,
+    //     forecast: 'it is snowing',
+    //     location: 'Ahmedabad'
+    // })
 })
 
 app.get('/student',(req,res)=>{
