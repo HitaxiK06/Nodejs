@@ -3,7 +3,9 @@ const express= require('express')
 const path = require('path')
 const hbs =require('hbs')
 const bodyparse = require('body-parser')
-//const notes = require('/Notes.js')
+const geocode = require('./utils/geocode')
+const forcast =require('./utils/forcast')
+const notes = require('./Notes')
 
 const app = express()
 
