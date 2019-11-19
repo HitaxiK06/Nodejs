@@ -108,7 +108,7 @@ app.get('/saving', (req, res) => {
     if (req.query.action == 'save') {
         notes.addNote(name,num)
     }
-    res.render('calculator', { result })
+    res.render('student', { result })
 })
 
 //Not found
