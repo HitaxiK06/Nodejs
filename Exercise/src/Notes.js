@@ -1,24 +1,25 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-const addNote = (title) => {
+const addNote = (name,number) => {
     const notes=loadnotes()
     const duplicateNotes=notes.filter(function(note){
-        return note.title ===title
+        return note.name ===name
     })
     if(duplicateNotes.length===0)
     {
         notes.push({
-            title:title
+            name:name,
+            number:number
         })
         saveNotes(notes)
     }else{console.log(chalk.red.inverse.bold('already exist'))}
 }
 
-const removeNote = (title) => {
+const removeNote = (name,number) => {
     const notes=loadnotes()
     const duplicateNotes=notes.filter(function(note){
-        return note.title !==title
+        return note.name !==name
     })
          saveNotes(duplicateNotes)     
    
@@ -26,9 +27,9 @@ const removeNote = (title) => {
 
 const listNote = () => {
     const notes=loadnotes()
-    console.log(chalk.red.inverse.bold('List of Title'))
+    console.log(chalk.red.inverse.bold('List of name'))
     notes.forEach((note)=>{
-        console.log(note.title)
+        console.log(note.name)
     })
          
 }

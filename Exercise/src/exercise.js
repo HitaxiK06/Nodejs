@@ -5,7 +5,7 @@ const hbs = require('hbs')
 const bodyparse = require('body-parser')
 const geocode = require('./utils/geocode')
 const forcast = require('./utils/forcast')
-// const notes = require('./Notes')
+const notes = require('./Notes')
 
 const app = express()
 
@@ -81,10 +81,6 @@ app.get('/weather2', (req, res) => {
                 return res.send({ error })
             }
             console.log(location + ' :: ', forcastdata)
-            // res.render('weather', {
-            //     forecast: forcastdata,
-            //     location: location
-            // })
               res.send({
                   forecast: forcastdata,
                   location: location,
@@ -92,11 +88,6 @@ app.get('/weather2', (req, res) => {
               })
         })
     })
-    // res.render('weather', {
-    //     //address: req.query.address,
-    //     forecast: 'it is snowing',
-    //     location: 'Ahmedabad'
-    // })
 })
 
 app.get('/student', (req, res) => {
@@ -111,7 +102,7 @@ app.get('/saving', (req, res) => {
     var num = req.query.number;
     var result;
     if (req.query.action == 'save') {
-
+        notes.addNote(name,num)
     }
     res.render('calculator', { result })
 })
