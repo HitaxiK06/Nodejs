@@ -23,7 +23,7 @@ hbs.registerPartials(partialpath)
 //setup of static assets
 app.use(express.static(publicdirectorypath))
 
-
+//Index Page
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Home',
@@ -32,6 +32,7 @@ app.get('', (req, res) => {
     //res.send('<h1>Home Page of Exercise</h1>')
 })
 
+//Calculator Page
 app.get('/calculator', (req, res) => {
     res.render('calculator', {
         title: 'Calculator',
@@ -61,6 +62,8 @@ app.get('/calculate', (req, res) => {
     }
     res.render('calculator', { result })
 })
+
+//weather Page
 app.get('/weather', (req, res) => {
     res.render('weather', {
         title: 'weather'
@@ -90,6 +93,7 @@ app.get('/weather2', (req, res) => {
     })
 })
 
+//Student Page
 app.get('/student', (req, res) => {
     res.render('student', {
         title: 'Student',
@@ -107,6 +111,7 @@ app.get('/saving', (req, res) => {
     res.render('calculator', { result })
 })
 
+//Not found
 app.get('*', (req, res) => {
     res.render('404')
 })
