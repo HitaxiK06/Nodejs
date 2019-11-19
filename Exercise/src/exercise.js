@@ -61,7 +61,11 @@ app.get('/calculate', (req, res) => {
     }
     res.render('calculator', { result })
 })
-
+// app.get('/weather', (req, res) => {
+//     res.render('weather', {
+//         title: 'weather'
+//     })
+// })
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({
@@ -77,18 +81,19 @@ app.get('/weather', (req, res) => {
                 return res.send({ error })
             }
             console.log(location + ' :: ', forcastdata)
-            res.render('weather', {
-                forecast: forcastdata,
-                location: location
-            })
-            //   res.send({
-            //       forecast: forcastdata,
-            //       location: location
-            //   })
+            // res.render('weather', {
+            //     forecast: forcastdata,
+            //     location: location
+            // })
+              res.send({
+                  forecast: forcastdata,
+                  location: location,
+                  address: req.query.address
+              })
         })
     })
-    // res.send({
-    //     address: req.query.address,
+    // res.render('weather', {
+    //     //address: req.query.address,
     //     forecast: 'it is snowing',
     //     location: 'Ahmedabad'
     // })
