@@ -10,6 +10,7 @@ fetch('http://localhost:3000/weather?address=Ahmedabad').then((response)=>{
         if(data.error){console.log(data.error)}
         else
         {
+            console.log(data.forecast)
             console.log(data.location)
         }
     })
