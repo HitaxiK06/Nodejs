@@ -61,12 +61,12 @@ app.get('/calculate', (req, res) => {
     }
     res.render('calculator', { result })
 })
-// app.get('/weather', (req, res) => {
-//     res.render('weather', {
-//         title: 'weather'
-//     })
-// })
 app.get('/weather', (req, res) => {
+    res.render('weather', {
+        title: 'weather'
+    })
+})
+app.get('/weather2', (req, res) => {
     if (!req.query.address) {
         return res.send({
             error: 'You must provide an address'

@@ -17,7 +17,7 @@ weatherform.addEventListener('submit', (e) => {
     errormsgs.textContent = 'Loading..'
     successmsgs.textContent = ''
     console.log('Testing',searchform.value)
-    fetch('http://localhost:3000/weather?address=' + searchform.value).then((response) => {
+    fetch('http://localhost:3000/weather2?address=' + searchform.value).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 errormsgs.textContent = data.error
