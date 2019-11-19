@@ -77,14 +77,14 @@ app.get('/weather', (req, res) => {
                 return res.send({ error })
             }
             console.log(location + ' :: ', forcastdata)
-            // res.render('weather', {
-            //     forecast: forcastdata,
-            //     location: location
-            // })
-              res.send({
-                  forecast: forcastdata,
-                  location: location
-              })
+            res.render('weather', {
+                forecast: forcastdata,
+                location: location
+            })
+            //   res.send({
+            //       forecast: forcastdata,
+            //       location: location
+            //   })
         })
     })
     // res.send({
