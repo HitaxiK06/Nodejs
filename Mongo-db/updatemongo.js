@@ -9,7 +9,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
         return console.log('unable to connect Database')
     }
     const db = client.db(databaseName)
-    //1 method
+    //1st method
     const updatepromise = db.collection('users').updateOne({
         _id: new ObjectId('5dd3df51336e103fdd801832')
     },
@@ -23,7 +23,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
     }).catch((e) => {
         console.log(e)
     })
-    //2.
+    //2nd
     db.collection('users').updateOne({
         _id: new ObjectId('5dd3df51336e103fdd801832')
     },
