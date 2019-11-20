@@ -13,6 +13,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
         return console.log('unable to connect Database')
     }
     const db = client.db(databaseName)
+    //1.
     db.collection('users').insertOne({
         _id: Id,
         name: 'Hirvita Rajyaguru',
@@ -23,6 +24,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
         }
         console.log(result.ops)
     })
+    //2.
     // db.collection('users').insertMany([{
     //     name: 'Adit Pandey',
     //     age: 20

@@ -9,6 +9,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
         return console.log('unable to connect Database')
     }
     const db = client.db(databaseName)
+    //1
     db.collection('users').findOne({ name: 'Hirvita Rajyaguru' }, (error, result) => {
         if (error) {
             return console.log('unable to Fetch User')
@@ -21,6 +22,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
         }
         console.log(result)
     })
+    //2.
     db.collection('users').find({ name: 'Hitaxi Kachhadiya' }).toArray( (error, result) => {
         if (error) {
             return console.log('unable to Fetch User')
