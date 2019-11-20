@@ -20,7 +20,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
 
     //2nd method
     db.collection('users').deleteMany({
-        age: 23
+        age: null
     }).then((result) => {
         console.log(result)
     }).catch((error) => {
