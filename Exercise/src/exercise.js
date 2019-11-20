@@ -75,7 +75,7 @@ app.get('/weather2', (req, res) => {
             error: 'You must provide an address'
         })
     }
-    geocode(req.query.address, (error, {latitude, longitude, location }) => {
+    geocode(req.query.address, (error, { latitude, longitude, location }) => {
         if (error) {
             return res.send({ error })
         }
@@ -84,11 +84,11 @@ app.get('/weather2', (req, res) => {
                 return res.send({ error })
             }
             console.log(location + ' :: ', forcastdata)
-              res.send({
-                  forecast: forcastdata,
-                  location: location,
-                  address: req.query.address
-              })
+            res.send({
+                forecast: forcastdata,
+                location: location,
+                address: req.query.address
+            })
         })
     })
 })
@@ -106,7 +106,7 @@ app.get('/saving', (req, res) => {
     var num = req.query.number;
     var result;
     if (req.query.action == 'save') {
-        notes.addNote(name,num)
+        notes.addNote(name, num)
     }
     res.render('student', { result })
 })
