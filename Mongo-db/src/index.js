@@ -14,7 +14,7 @@ app.post('/users', (req, res) => {
     user.save().then(() => {
         res.send(user)
     }).catch((error) => {
-        res.send('Error!', error)
+        res.send(error)
     })
 })
 
