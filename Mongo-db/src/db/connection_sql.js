@@ -6,9 +6,10 @@ const mssql = require('mssql')
 const config = {
     host:'localhost',
     user: 'SYNOVERGETECH\kachhahi',
+  //  password: '',
     server: 'SVT-PC-193',
     database: 'Hitaxi',
-    
+    port: 8080
 };
 
 mssql.connect(config, function (err) {
