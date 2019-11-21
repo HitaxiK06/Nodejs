@@ -1,12 +1,11 @@
 const mssql = require('mssql')
-const express = require('express');
+//const express = require('express');
 
-const app = express();
+//const app = express();
 
 const config = {
     host:'localhost',
     user: 'SYNOVERGETECH\kachhahi',
-    password: 'Hitaxi.kachhadiya',
     server: 'SVT-PC-193',
     database: 'Hitaxi',
     
