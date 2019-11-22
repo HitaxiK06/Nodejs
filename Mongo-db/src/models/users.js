@@ -33,15 +33,4 @@ const User = mongoose.model('users', {
 })
 
 module.exports = User
-// const user = new User({
-    // name: 'Hitaxi Kachhadiya',
-    // age: 22,
-    // email:'hitaxi@synoverge.com',
-    // password: 'Hitaxi12'
-// })
 
-// user.save().then(() => {
-//     console.log(user)
-// }).catch((error) => {
-//     console.log('Error!', error)
-// })

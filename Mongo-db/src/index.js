@@ -1,5 +1,5 @@
 const express = require('express')
-require('./db/mongoose')
+require('./db/connection_mongoose')
 const User = require('./models/users')
 const app = express()
 
