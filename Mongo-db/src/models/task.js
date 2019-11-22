@@ -1,14 +1,13 @@
 const mongoose = require('mongoose')
-const validator = require('validator')
 
-
-const Task = mongoose.model('Task-Manager', {
+const Task = mongoose.model('tasks', {
     Description: {
         type: String,
         required: true
     },
     Update: {
-        type: String
+        type: String,
+        required: true
     }
 })
 
