@@ -25,7 +25,7 @@ add(1, 2).then((sum) => {
         return add(sum,2)
     
 }).then((sum2) => {
-    return add(sum2)
+    console.log(sum2)
 }).catch((e) => {
     console.log(e)
 })
