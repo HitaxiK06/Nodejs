@@ -1,11 +1,12 @@
 const express = require('express')
 require('./db/connection_mongoose')
 const User = require('./models/users')
+const Task = require('./models/task')
 const app = express()
 
 const port = process.env.port || 3000
 app.use(express.json())
-
+//------Users------
 //Create user 
 app.post('/users', (req, res) => {
    
@@ -42,6 +43,46 @@ app.get('/users/:id', (req, res) => {
         res.status(400).send(error)
     })
 })
+//------ End Users------
+
+//------Tasks------
+//Create task 
+app.post('/task', (req, res) => {
+   
+    const task = new Task(req.body)
+
+    task.save().then(() => {
+        res.status(201).send(task)
+    }).catch((error) => {
+        res.status(400).send(error)
+    })
+})
+
+//Get all tasks
+app.get('/task', (req, res) => {
+
+    Task.find({}).then((task) => {
+        res.send(task)
+    }).catch((error) => {
+        res.status(400).send(error)
+    })
+})
+
+//Get Task by ID
+app.get('/task/:id', (req, res) => {
+
+    const _id = req.params.id
+
+    Task.findById(_id).then((task) => {
+        if (!task) {
+            return res.status(404).send()
+        }
+        res.send(task)
+    }).catch((error) => {
+        res.status(400).send(error)
+    })
+})
+//------ End Task------
 
 app.listen(port, () => {
     console.log('Serve is up..!')
