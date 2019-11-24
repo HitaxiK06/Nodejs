@@ -3,7 +3,7 @@ require('./db/connection_mongoose')
 const User = require('./models/users')
 const Task = require('./models/task')
 const userRouter = require('./router/user')
-//const taskRouter = require('./router/tasks')
+const taskRouter = require('./router/tasks')
 const app = express()
 const port = process.env.port || 3000
 app.use(express.json())
@@ -12,7 +12,7 @@ app.use(userRouter)
 //------ End Users------
 
 //------Tasks------
-//app.use(taskRouter)
+app.use(taskRouter)
 //------ End Task------
 
 app.listen(port, () => {
