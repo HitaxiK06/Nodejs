@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-const userSchema = new mongoose.Schema(User, {
+
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -33,6 +34,7 @@ const userSchema = new mongoose.Schema(User, {
 
 userSchema.pre('save',function(){
     const user = this
+    console.log("Before Query Fire")
     next()
 })
 const User = mongoose.model('users', userSchema)
