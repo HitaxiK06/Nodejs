@@ -21,10 +21,12 @@ app.listen(port, () => {
     console.log('Serve is up..!')
 })
 
-const MyFunction = async() => {
+const hashPassword = async() => {
     const password = 'Hitaxi'
     const hashpass = await bcrypt.hash(password,2)      //Hash function not reversable
 
-    console.log(hashpass)
+   
+    const isMatch = await bcrypt.compare(password,hashpass) //Compare password first decrypted and second encrypted
+    console.log(isMatch)
 }
-MyFunction()
+hashPassword()
