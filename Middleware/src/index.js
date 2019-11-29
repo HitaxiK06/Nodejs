@@ -21,12 +21,12 @@ app.listen(port, () => {
     console.log('Serve is up..!')
 })
 
-const hashPassword = async() => {
-    const password = 'Hitaxi'
-    const hashpass = await bcrypt.hash(password,2)      //Hash function not reversable
+// const hashPassword = async() => {
+//     const password = 'Hitaxi'
+//     const hashpass = await bcrypt.hash(password,2)      //Hash function not reversable
 
    
-    const isMatch = await bcrypt.compare(password,hashpass) //Compare password first decrypted and second encrypted
-    console.log(isMatch)
-}
-hashPassword()
+//     const isMatch = await bcrypt.compare(password,hashpass) //Compare password first decrypted and second encrypted
+//     console.log(isMatch)
+// }
+// hashPassword()
