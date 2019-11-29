@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-const User = mongoose.model('users', {
+const userSchema = new mongoose.Schema(User, {
     name: {
         type: String,
         required: true,
@@ -24,12 +24,18 @@ const User = mongoose.model('users', {
             }
         }
     },
-    password : {
+    password: {
         type: String,
         required: true,
-        minlength:7
+        minlength: 7
     }
 })
+
+userSchema.pre('save',function(){
+    const user = this
+    next()
+})
+const User = mongoose.model('users', userSchema)
 
 module.exports = User
 
