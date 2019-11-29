@@ -1,4 +1,4 @@
-const express= require('express')
+const express = require('express')
 const User = require('../models/users')
 
 const router = new express.Router()
@@ -59,7 +59,11 @@ router.patch('/users/:id', async (req, res) => {
         return res.status(400).send({ error: 'Invalid Updates!' })
     }
     try {
-        const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }) //runValidators do validation
+        const user = await User.findById(req.params.id)
+        updates.forEach((update) => user[update] = req.body[update])
+        await user.save()
+        user.name = 'Something Try'
+        // const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }) //runValidators do validation
 
         if (!user) {
             return res.status(404).send()
@@ -80,7 +84,7 @@ router.delete('/users/:id', async (req, res) => {
         }
         res.send(user)
     } catch (e) {
-res.status(500).send(e)
+        res.status(500).send(e)
     }
 })
 
