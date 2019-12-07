@@ -12,9 +12,10 @@ app.use(express.json())
 app.use(userRouter)
 //------ End Users------
 
-//------Tasks------
+//------Task------
 app.use(taskRouter)
 //------ End Task------
+
 
 app.listen(port, () => {
     console.log('Serve is up..!')
