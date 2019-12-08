@@ -1,7 +1,18 @@
-const express= require('express')
+const express = require('express')
 const User = require('../models/users')
 
 const router = new express.Router()
+
+//login functionality
+router.post('/users/login', async (req, res) => {
+    try {
+        const user = await User.findByCredentials(req.body.email, req.body.password)
+        res.send(user)
+    } catch (e) {
+        res.status(400).send(e)
+    }
+})
+
 
 //Create user 
 router.post('/users', (req, res) => {
@@ -59,12 +70,16 @@ router.patch('/users/:id', async (req, res) => {
         return res.status(400).send({ error: 'Invalid Updates!' })
     }
     try {
-        const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }) //runValidators do validation
+        //const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }) //runValidators do validation
 
+        const user = await User.findById(req.params.id)
+        updates.forEach((update) =>
+            user[update] = req.body[update]
+        )
+        await user.save()
         if (!user) {
             return res.status(404).send()
         }
-        console.log(req.params.id)
         res.send(user)
     } catch (e) {
         res.status(500).send(e)
@@ -80,7 +95,7 @@ router.delete('/users/:id', async (req, res) => {
         }
         res.send(user)
     } catch (e) {
-res.status(500).send(e)
+        res.status(500).send(e)
     }
 })
 
