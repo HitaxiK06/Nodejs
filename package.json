@@ -1,0 +1,32 @@
+{
+  "name": "Node-Practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "mongodb": "^3.3.4",
+    "node": "^12.13.0",
+    "nodeman": "^1.1.2",
+    "nodemon": "^1.19.4",
+    "request": "^2.88.0",
+    "validation": "^0.0.1",
+    "validator": "^11.1.0",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HitaxiK06/Nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HitaxiK06/Nodejs/issues"
+  },
+  "homepage": "https://github.com/HitaxiK06/Nodejs#readme"
+}
